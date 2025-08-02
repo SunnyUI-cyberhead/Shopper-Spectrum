@@ -28,7 +28,20 @@ Shopper Spectrum is a comprehensive machine learning solution that revolutionize
 - **📊 Interactive Dashboard**: Beautiful, responsive Streamlit web application
 - **📈 Business Intelligence**: Comprehensive analytics with real-time visualizations
 - **🔍 Advanced Analytics**: Customer Lifetime Value, Churn Prediction, Cohort Analysis
-- **🚀 Production Ready**: Docker support, CI/CD pipeline, and cloud deployment
+- **🚀 Production Ready**: Cloud deployment ready with comprehensive documentation
+
+## 📸 Screenshots
+
+<div align="center">
+
+### 🏠 Dashboard Home
+![Dashboard Home](Figure_1.png)
+
+### 👥 Customer Segmentation
+![Customer Segmentation](Figure_2.png)
+
+### 🎁 Product Recommendations
+![Product Recommendations](Figure_3.png)
 
 </div>
 
@@ -41,7 +54,7 @@ Shopper Spectrum is a comprehensive machine learning solution that revolutionize
 - **Visualization**: Matplotlib, Seaborn, Plotly
 
 ### Infrastructure
-- **Deployment**: Docker, Streamlit Cloud, Heroku
+- **Deployment**: Streamlit Cloud, Heroku, Railway
 - **Version Control**: Git with Git LFS for large files
 - **CI/CD**: GitHub Actions
 - **Data Storage**: CSV, Pickle, Joblib
@@ -61,16 +74,8 @@ shopper-spectrum/
 │   └── rfm_stats.pkl           # RFM statistics
 ├── 📁 data/                     # Datasets (Git LFS)
 │   └── online_retail.csv        # E-commerce transaction data
-├── 📁 assets/                   # Static assets
-│   └── images/                  # Screenshots and diagrams
-├── 📁 docs/                     # Documentation
-├── 📁 tests/                    # Unit tests
-├── 📁 scripts/                  # Utility scripts
-├── 📁 notebooks/                # Jupyter notebooks for analysis
-├── 🐳 Dockerfile               # Container configuration
 ├── 📋 requirements.txt         # Python dependencies
-├── 🔧 docker-compose.yml       # Multi-container setup
-├── ⚙️ .github/workflows/       # CI/CD pipelines
+├── 🖼️ Figure_*.png             # Analysis visualizations
 └── 📖 README.md                # Project documentation
 ```
 
@@ -118,17 +123,6 @@ shopper-spectrum/
 
 6. **Access the dashboard**
    Open your browser and navigate to `http://localhost:8501`
-
-### 🐳 Docker Installation
-
-```bash
-# Build and run with Docker
-docker build -t shopper-spectrum .
-docker run -p 8501:8501 shopper-spectrum
-
-# Or use docker-compose
-docker-compose up
-```
 
 ## 📊 Usage Guide
 
@@ -282,27 +276,54 @@ python -m pytest tests/integration/ -v
 
 ## 🚀 Deployment
 
-### Streamlit Cloud
+### Streamlit Cloud (Recommended)
 1. Fork this repository
 2. Connect to [Streamlit Cloud](https://share.streamlit.io/)
-3. Deploy with main file: `dashboard.py`
+3. Select your repository
+4. Set main file: `dashboard.py`
+5. Deploy with one click!
 
 ### Heroku
 ```bash
+# Create Heroku app
 heroku create your-app-name
-heroku buildpacks:add --index 1 heroku/python
-heroku buildpacks:add --index 2 https://github.com/heroku/heroku-buildpack-git-lfs
+
+# Add Python buildpack
+heroku buildpacks:add heroku/python
+
+# Add Git LFS buildpack for large files
+heroku buildpacks:add https://github.com/heroku/heroku-buildpack-git-lfs
+
+# Deploy
 git push heroku main
 ```
 
-### AWS/GCP/Azure
-Detailed deployment guides available in `/docs/deployment/`
+### Railway
+1. Connect your GitHub repository to [Railway](https://railway.app/)
+2. Select the repository
+3. Railway will auto-detect Python and deploy
+4. Set start command: `streamlit run dashboard.py --server.port $PORT`
+
+## 🔄 Model Retraining
+
+To retrain the models with your own data:
+
+```bash
+# Update the dataset path in ShopSpec.py
+python ShopSpec.py
+
+# The script will:
+# 1. Load and preprocess your data
+# 2. Perform RFM analysis
+# 3. Train clustering models
+# 4. Build recommendation system
+# 5. Save all models to /models directory
+```
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md).
+We welcome contributions! Please follow these steps:
 
-### Development Setup
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feature/amazing-feature`
 3. Make your changes and add tests
@@ -312,7 +333,7 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 
 ### Code Style
 - Follow PEP 8 guidelines
-- Use Black for code formatting
+- Use meaningful variable names
 - Add docstrings for all functions
 - Include type hints where appropriate
 
@@ -328,17 +349,16 @@ See the list of [contributors](https://github.com/SunnyUI-cyberhead/Shopper-Spec
 
 ## 🙏 Acknowledgments
 
-- **UCI ML Repository** for the Online Retail dataset
+- **Labmentix** for the Online Retail dataset
 - **Streamlit Team** for the amazing framework
 - **Scikit-learn Community** for excellent ML tools
 - **Open Source Community** for inspiring libraries and tools
 
 ## 📞 Support & Contact
 
-- 📧 **Email**: [manna.dsi@gmail.com]
 - 🐛 **Issues**: [GitHub Issues](https://github.com/SunnyUI-cyberhead/Shopper-Spectrum/issues)
 - 💬 **Discussions**: [GitHub Discussions](https://github.com/SunnyUI-cyberhead/Shopper-Spectrum/discussions)
-- 📝 **Documentation**: [Project Wiki](https://github.com/SunnyUI-cyberhead/Shopper-Spectrum/wiki)
+- 📧 **Email**: (manna.dsi@gmail.com)
 
 ## 🌟 Show Your Support
 
